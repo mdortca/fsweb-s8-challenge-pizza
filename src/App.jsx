@@ -3,7 +3,6 @@ import AnaSayfa from './Components/AnaSayfa'
 import './App.css'
 
 function App() {
-  const merhaba = "Dünya";
 
   return (
     <>
