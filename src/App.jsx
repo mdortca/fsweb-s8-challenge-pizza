@@ -7,9 +7,10 @@ import SiparisFormu from './Components/SiparisFormu';
 function App() {
 
   return (
-    <>
-    <AnaSayfa />
-    </>
+    
+<>
+<AnaSayfa />
+</>
   )
 }
 

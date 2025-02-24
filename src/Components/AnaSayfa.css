@@ -21,7 +21,7 @@ p {
     position: absolute;
     top: 24%;
     color: white;
-    /* white-space: nowrap;  KOD ACIKTIRIR TEK SATIRDA OLDU */
+    white-space: nowrap;  /* KOD ACIKTIRIR TEK SATIRDA OLDU */
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -30,6 +30,15 @@ p {
 .alttaki{
     position: absolute;
     top: 31%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: auto;
+}
+
+button{
+    position: absolute;
+    top: 40%;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
