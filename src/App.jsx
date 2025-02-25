@@ -3,6 +3,7 @@ import { useState } from 'react';
 import AnaSayfa from './Components/AnaSayfa';
 import './App.css';
 import SiparisFormu from './Components/SiparisFormu';
+import SiparisOnayi from './Components/SiparisOnayi';
 
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route path="/SiparisFormu" >
           <SiparisFormu/>
+        </Route>
+        <Route path="/SiparisOnayi">
+          <SiparisOnayi />
         </Route>
       </Switch>
       </Router>
