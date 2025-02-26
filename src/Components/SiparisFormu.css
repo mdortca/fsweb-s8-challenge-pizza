@@ -42,3 +42,11 @@ body {
     margin: 0;
     list-style-type: none;
   }
+
+  button{
+    background-color: #FDC913;
+    border-radius: 13px;
+    border: none;
+    padding: 5px;
+    padding-top: 8px;
+  }

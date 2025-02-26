@@ -3,6 +3,7 @@ import './AnaSayfa.css';
 import logo from "../assets/logo.svg";
 import { useHistory } from 'react-router-dom';
 
+
 export default function AnaSayfa() {
   const history = useHistory();
     
