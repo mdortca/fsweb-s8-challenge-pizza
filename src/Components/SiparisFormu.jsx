@@ -3,13 +3,14 @@ import './SiparisFormu.css';
 import logo from "../assets/logo.svg";
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function SiparisFormu() {
   const [boyut, setBoyut] = useState('');
   const [hamur, setHamur] = useState('');
   const [ekMalzemeler, setEkMalzemeler] = useState([]);
   const [hataMesaji, setHataMesaji] = useState('');
-
+  const [submitting, setSubmitting] = useState(false);
   const handleEkMalzemeChange = (event) => {
     const { value, checked } = event.target;
     if (checked) {
@@ -49,30 +50,51 @@ export default function SiparisFormu() {
   const [toplamFiyat, setToplamFiyat]= useState(85.50);
   
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
       e.preventDefault();
+      setSubmitting(true);
 
       if(!hamur || !boyut) {
         setHataMesaji("Lütfen Boyut ve hamur seçin")
+        setSubmitting(false);
         return;
       }
 
       if (ekMalzemeler.length < 4) {
         setHataMesaji('Lütfen en az 4 malzeme seçin.');
+        setSubmitting(false);
         return;
       } else if (ekMalzemeler.length > 10) {
         setHataMesaji('Lütfen en fazla 10 malzeme seçin.');
+        setSubmitting(false);
         return;
       }
 
 
         setHataMesaji('');
-        history.push("/SiparisOnayi");
+
+        const orderData = {
+          hamur,
+          ekMalzemeler,
+          boyut,
+          toplamFiyat
+        };
+
+        try{
+          const response = await axios.post('https://reqres.in/api/pizza', orderData);
+          console.log("Siparis", response.data);
+          history.push("/SiparisOnayi");
+        } catch (error){
+          console.error("Hata :", error)
+          setHataMesaji("Hata oluştu.");
+        } finally{
+          setSubmitting(false);
+        }  
 
   }
 
     return (
-    <div>
+    <div className="background">
       <div className="siparis-formu-container">
         <img src={logo} alt="logo" className="logo"/>
 
@@ -98,6 +120,7 @@ export default function SiparisFormu() {
                 value="Küçük"
                 checked={boyut === "Küçük"}
                 onChange={handleBoyutChange}
+                disabled={submitting}
                 />
                 Küçük
               </label>
@@ -107,6 +130,7 @@ export default function SiparisFormu() {
                 value="Orta"
                 checked={boyut === "Orta"}
                 onChange={handleBoyutChange}
+                disabled={submitting}
                 />
                 Orta
               </label>
@@ -116,13 +140,14 @@ export default function SiparisFormu() {
                 value="Büyük"
                 checked={boyut === "Büyük"}
                 onChange={handleBoyutChange}
+                disabled={submitting}
                 />
                 Büyük
               </label>
             </div>
             <div>
             <h3>Hamur Seç</h3>
-            <select value={hamur} onChange={handleHamurChange}>
+            <select value={hamur} onChange={handleHamurChange} disabled={submitting}>
               <option value="">Seçiniz</option>
               <option value="İnce">İnce</option>
               <option value="Orta">Orta</option>
@@ -138,6 +163,7 @@ export default function SiparisFormu() {
                   type="checkbox"
                   value={malzeme}
                   onChange={handleEkMalzemeChange}
+                  disabled={submitting}
                 />
                 {malzeme}
               </label>
@@ -145,9 +171,8 @@ export default function SiparisFormu() {
           </div>  
           {hataMesaji && <p style={{ color: 'blue' }}>{hataMesaji}</p>}
               <p> {toplamFiyat}</p> {/* TOPLAM SİPARİŞ FİYATI */}
-            <button type="submit" >SİPARİŞ VER </button>
+            <button type="submit" disabled={submitting} >SİPARİŞ VER </button>
             
-
         </form>
         </div>
     );
