@@ -94,7 +94,7 @@ export default function SiparisFormu() {
   }
 
     return (
-    <div className="background">
+    <div className="all-one">
 
 
       <div className="top-div"> {/* top-div */}
@@ -111,11 +111,24 @@ export default function SiparisFormu() {
 
 
       <div className="bottom-div">
-      <h1 className="aciPizza">Position Absolute Acı Pizza</h1>
-        <p className="fiyatRengi">{pizzaPrice}₺</p>
+              <h1 className="aciPizza">Position Absolute Acı Pizza</h1>
+              <p className="fiyat">{pizzaPrice}₺</p>
+
+              <p className="aciklama" style={{ color: "#5F5F5F" }}>
+                    Frontend Dev olarak hala position:absolute kullanıyorsan bu çok acı
+                    pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli
+                    diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun
+                    ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
+                    yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan
+                    kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta
+                    denir.
+                  </p>
+
+     
         <form onSubmit={handleFormSubmit}>
             {/* Siparis Formunun içerigi burada */}
-            <div>
+          <div className="boyut-hamur-row">
+            <div className="boyut-sec">
               <h3>Boyut Seç</h3>
               <label>
                 <input
@@ -148,17 +161,19 @@ export default function SiparisFormu() {
                 Büyük
               </label>
             </div>
-            <div>
-            <h3>Hamur Seç</h3>
-            <select value={hamur} onChange={handleHamurChange} disabled={submitting}>
-              <option value="">Seçiniz</option>
-              <option value="İnce">İnce</option>
-              <option value="Orta">Orta</option>
-              <option value="Kalın">Kalın</option>
-            </select>
-
+            <div className="hamur-sec">
+            < h3>Hamur Seç</h3>
+              <select value={hamur} onChange={handleHamurChange} disabled={submitting}>
+                <option value="">Hamur Kalınlığı</option>
+                <option value="İnce">İnce</option>
+                <option value="Orta">Orta</option>
+                <option value="Kalın">Kalın</option>
+              </select>
             </div>
-            <div>
+          </div>
+
+
+            <div className="ek-malzemeler">
             <h3>Ek Malzemeler:</h3>
             {['Sosis', 'Salam', 'Turşu', 'Domates', 'Mantar', 'Zeytin', 'Peperoni', 'Biber', 'Soğan', 'Keçi Peyniri', 'Ton Balığı', 'Ananas', 'Kaşar Peyniri', 'Sünger Ekstra', 'Sos'].map((malzeme) => (
               <label key={malzeme}>
@@ -173,13 +188,13 @@ export default function SiparisFormu() {
             ))}
           </div>  
           {hataMesaji && <p style={{ color: 'blue' }}>{hataMesaji}</p>}
-              <p> {toplamFiyat}</p> {/* TOPLAM SİPARİŞ FİYATI */}
-            <button type="submit" disabled={submitting} >SİPARİŞ VER </button>
+              <p>Toplam Fiyat: {toplamFiyat}</p> {/* TOPLAM SİPARİŞ FİYATI */}
+            <button className="siparis-ver" type="submit" disabled={submitting} >SİPARİŞ VER </button>
             
         </form>
-        </div>
+      </div>
 
 
-        </div>
+    </div>
     );
 }

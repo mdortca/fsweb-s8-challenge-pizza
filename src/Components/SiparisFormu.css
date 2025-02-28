@@ -1,18 +1,42 @@
 
 
-.background {
+.all-one {
     display: flex;
     flex-direction: column;
     height: 100vh;
-
-
 }
-/* kod1 %20 kırmızı*/
+
+
+
+
 
 .top-div {
-    flex: 0 0 20%;  
-    background-color: #CE2829;  
-  }
+  flex: 0 0 20%;
+  background-color: #CE2829;
+  display: flex;
+  justify-content: center;  
+  align-items: center; 
+  position: relative;
+  height: 100px;
+}
+
+.logo2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navigation ul {
+  position: absolute;
+  left: 0px;
+  top: 85%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 4px;
+  list-style-type: none;
+}
+
 
   .bottom-div {
     flex: 1;  
@@ -21,25 +45,64 @@
 
 
 
+  .boyut-sec,
+  .hamur-sec {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.boyut-hamur-row {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.ek-malzemeler{
+  margin-top: 60px;
+}
 
 
 
-
-
-
-
-
-
-
-  button{
+  .siparis-ver{
     background-color: #FDC913;
-    border-radius: 13px;
+    border-radius: 0;
     border: none;
     padding: 5px;
+    margin: 240px;
     padding-top: 8px;
+    top: 60%;
   }
 
 
-
-
-
+  .aciPizza-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    margin: 20px;
+  }
+  
+  .aciPizza {
+    display: flex;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .fiyat {
+    font-size: 24px;
+    color: grey;
+    margin-left: 20px;
+  }
+  
+  .aciklama {
+    display: flex;
+    margin-top: 20px;
+    color: #5F5F5F;
+    line-height: 1.6;
+  }
+  

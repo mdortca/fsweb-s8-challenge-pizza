@@ -17,7 +17,7 @@
     height: auto;
 }
 
-p {
+p.mr {
     font-family: "Barlow", serif;
     font-weight: 100;
     font-style: normal;
@@ -32,6 +32,10 @@ p {
 }
 .alttaki{
     position: absolute;
+    font-weight: 100;
+    font-style: normal;
+    font-family: "Barlow", serif;
+    color: white;
     top: 31%;
     left: 50%;
     transform: translateX(-50%);
@@ -39,11 +43,18 @@ p {
     height: auto;
 }
 
-button{
+.aciktim{
+    background-color: #FDC913;
     position: absolute;
+    display: flex;
     top: 40%;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
     height: auto;
+    border-radius: 10px;
+    border:none;
+    align-items: center;
+    justify-content: center;
+    padding: 1%;
 }
