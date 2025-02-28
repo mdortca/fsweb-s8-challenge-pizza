@@ -1,56 +1,35 @@
-.logo {
-    position: absolute;
-    top: 13%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: auto;
-}
-/* KOD 1 %20Sİ KIRMIZI OLSUN */ 
-body {
-    margin: 0;
-    height: 100vh;
-}
+
 
 .background {
-    width: 100%;
-    height: 20%; 
-    background-color:#CE2829;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+
 }
 /* kod1 %20 kırmızı*/
 
-.aciPizza {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    white-space: nowrap;
-    transform: translateX(-50%);
-    width: 100px;
-    height: auto;
-
-}
-
-
-.fiyatRengi {
-    top: 31%;
-    color:black;
-}
-.navigation {
-    position: absolute;
-    display: flex;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    justify-content: space-around;
-    width: auto;
-    height: auto;
-}
-.navigation ul {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+.top-div {
+    flex: 0 0 20%;  
+    background-color: #CE2829;  
   }
+
+  .bottom-div {
+    flex: 1;  
+    background-color: #FAF7F2;  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
   button{
     background-color: #FDC913;
@@ -59,3 +38,8 @@ body {
     padding: 5px;
     padding-top: 8px;
   }
+
+
+
+
+

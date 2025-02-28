@@ -95,19 +95,22 @@ export default function SiparisFormu() {
 
     return (
     <div className="background">
-      <div className="siparis-formu-container">
-        <img src={logo} alt="logo" className="logo"/>
 
 
-        <nav className="navigation">
-        <ul>
-          <li><Link to="/">Ana Sayfa</Link></li>
-          <li><Link to="/SiparisFormu">Seçenekler</Link></li>
-          <li><Link to="/SiparisOlustur">Sipariş Oluştur</Link></li>
-        </ul>
-      </nav>
+      <div className="top-div"> {/* top-div */}
+        <img src={logo} alt="logo" className="logo2"/>
+          <nav className="navigation">
+            <ul>
+              <li><Link to="/">Ana Sayfa</Link></li>
+              <li><Link to="/SiparisFormu">Seçenekler</Link></li>
+              <li><Link to="/SiparisOlustur">Sipariş Oluştur</Link></li>
+            </ul>
+          </nav>
       </div>
 
+
+
+      <div className="bottom-div">
       <h1 className="aciPizza">Position Absolute Acı Pizza</h1>
         <p className="fiyatRengi">{pizzaPrice}₺</p>
         <form onSubmit={handleFormSubmit}>
@@ -174,6 +177,9 @@ export default function SiparisFormu() {
             <button type="submit" disabled={submitting} >SİPARİŞ VER </button>
             
         </form>
+        </div>
+
+
         </div>
     );
 }
